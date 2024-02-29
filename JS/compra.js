@@ -12,16 +12,16 @@ var productosDisponibles = [
     new Producto("Gaseosa", 1.5, "Bebida", 80),
     new Producto("Helado", 2, "Postre", 30),
     new Producto("Pizza", 8, "Comida", 40),
-    new Producto("Hot Dog", 4, "Comida", 60),
+    new Producto("Pancho", 4, "Comida", 60),
     new Producto("Ensalada", 3, "Comida", 40),
     new Producto("Tarta", 6, "Comida", 20),
     new Producto("Empanadas", 1.5, "Comida", 70),
     new Producto("Sushi", 10, "Comida", 25),
     new Producto("Cerveza", 3, "Bebida", 50),
-    new Producto("Refresco", 1, "Bebida", 60),
+    new Producto("Jugo", 1, "Bebida", 60),
     new Producto("Sandwich", 4, "Comida", 70),
-    new Producto("Batido", 3, "Bebida", 40),
-    new Producto("Pastel", 7, "Postre", 25)
+    new Producto("Smoothie", 3, "Bebida", 40),
+    new Producto("Torta", 7, "Postre", 25)
 ];
 
 // Función para simular la compra
@@ -38,15 +38,15 @@ function simularCompra() {
 
         var opcion = parseInt(prompt(listaProductos + "\nIngrese el número del producto que desea comprar, o '0' para finalizar la compra y ver el total:"));
         if (opcion === 0) {
-            break; // Finalizar la compra
+            break; 
         } else if (opcion >= 1 && opcion <= productosDisponibles.length) {
             var productoSeleccionado = productosDisponibles[opcion - 1];
             var cantidad = parseInt(prompt(`Ha seleccionado: ${productoSeleccionado.nombre} - $${productoSeleccionado.precio}\nIngrese la cantidad (para restar, ingrese un número negativo):`));
 
-            // Verificar disponibilidad del producto para restar
+            
             if (cantidad < 0 && Math.abs(cantidad) > listaCompra[opcion - 1]) {
                 alert(`No puede restar más de ${listaCompra[opcion - 1]} ${productoSeleccionado.nombre}.`);
-                continue; // Reiniciar la iteración del while
+                continue; 
             }
 
             if (cantidad > 0) {
@@ -81,5 +81,5 @@ function simularCompra() {
 }
 
 
-// Asignar evento click al botón de simulación de compra
+
 document.getElementById("simularCompraBtn").addEventListener("click", simularCompra);
